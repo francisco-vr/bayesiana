@@ -1,0 +1,478 @@
+---
+title: "Trabajo Estadística Bayesiana"
+author:
+  - Eugenio Guzmán^[ejguzmanl@udd.cl]
+  - Alejandra Molina^[alejandramm@gmail.com]
+  - Jaquelin Morillo^[jaquelin.morillo@gmail.com]
+  - Diego Ramirez^[diegoramirez.al34@gmail.com]
+  - Francisco Villarroel^[fvillarroelr@udd.cl]
+date: '2022-08-26'
+output: pdf_document
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE}
+ipak <- function(pkg){
+  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(new.pkg)) 
+    install.packages(new.pkg, dependencies = TRUE)
+  sapply(pkg, require, character.only = TRUE)
+}
+
+# usage
+
+packages <- c("cowplot","dplyr","ggplot2","runjags","ggpubr")
+ipak(packages)
+
+```
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, eval=FALSE}
+load("Downloads/resultsMod1.Rdata")
+load("Downloads/resultsMod2.Rdata")
+load("Downloads/resultsMod3.Rdata")
+load("Downloads/resultsMod4.Rdata")
+load("Downloads/resultsMod5.Rdata")
+
+```
+
+
+## Introducción
+
+
+HOLALA ESTE ES UN TRABAJO MUY BACán 
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+
+## Driff Diffution model
+
+You can also embed plots, for example:
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.ç
+
+## Explicación del experimento
+
+Se observó el comportamiento de veinte personas mientras participaban en un juego de ruleta. Su tarea era apostar por uno de los dos colores (naranjo o celeste). Cada uno de los colores se identifica con la probabilidad de obtener un premio determinado. Algunas ruletas cuentan con un área gris (máscara) que oculta el verdadero color de la sección (ambigüedad).
+
+## Resultados
+
+Se plantearon cinco modelos para resolver la consigna planteada.  
+
+
+![](materials/diagram_1.png)
+
+![](materials/diagram_2.png)
+
+
+
+
+
+### Modelo 1 
+
+$$ Y_{(ij)} \sim \text { Wiener }(\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{(ij)})$$
+
+Este modelo supone una distribucion Wiener dependiente de los parámetros alfa, beta, tay y delta en función de los sujetos estudiados y los _trials_.
+
+
+
+
+
+#### Gráficos
+
+
+```{r, echo=FALSE}
+alfa1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot01.png")
+beta1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot02.png")
+tau1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot03.png")
+delta1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot04.png")
+
+plot_grid(alfa1.a,beta1.a,tau1.a,delta1.a)
+
+```
+
+[chantar toda la wea de graficos y tablas acá]
+
+
+```{r, echo=FALSE}
+alfa1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot01.png")
+beta1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot02.png")
+tau1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot03.png")
+delta1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot04.png")
+
+plot_grid(alfa1.b,beta1.b,tau1.b,delta1.b)
+```
+
+```{r,echo=FALSE}
+alfa1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot01.png")
+beta1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot02.png")
+tau1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot03.png")
+delta1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot04.png")
+
+plot_grid(alfa1.c,beta1.c,tau1.c,delta1.c)
+```
+
+
+
+
+```{r, echo=FALSE}
+alfa1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot01.png")
+beta1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot02.png")
+tau1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot03.png")
+delta1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot04.png")
+
+plot_grid(alfa1.d,beta1.d,tau1.d,delta1.d)
+```
+
+
+```{r, echo=FALSE}
+alfa1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot01.png")
+beta1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot02.png")
+tau1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot03.png")
+delta1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot04.png")
+
+plot_grid(alfa1.e,beta1.e,tau1.e,delta1.e)
+
+```
+
+
+
+### Modelo 2
+
+$$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)} \delta_{\left(p_{ij}, o_{ij}\right)})$$
+
+Al igual que el modelo 1  se contemplan los mismos parámetros, con la excepción que el parámetro delta depende linealmente de la probabilidad y del premio normalizado
+
+
+[chantar toda la wea de graficos y tablas acá]
+
+
+```{r, echo=FALSE}
+alfa2.a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot01.png")
+beta2.a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot02.png")
+tau2.a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot03.png")
+delta2.a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot04.png")
+b1.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot05.png")
+b2.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot06.png")
+
+plot_grid(alfa2.a,beta2.a,tau2.a,delta2.a,b1.2a,b2.2a)
+```
+
+
+```{r, echo=FALSE}
+
+alfa2.b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot01.png")
+beta2.b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot02.png")
+tau2.b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot03.png")
+delta2.b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot04.png")
+b1.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot05.png")
+b2.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot06.png")
+
+plot_grid(alfa2.b,beta2.b,tau2.b,delta2.b,b1.2b,b2.2b)
+
+```
+
+```{r, echo=FALSE}
+alfa2.c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot01.png")
+beta2.c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot02.png")
+tau2.c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot03.png")
+delta2.c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot04.png")
+b1.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot05.png")
+b2.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot06.png")
+
+plot_grid(alfa2.c,beta2.c,tau2.c,delta2.c,b1.2c,b2.2c)
+```
+
+```{r, echo=FALSE}
+
+alfa2.d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot01.png")
+beta2.d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot02.png")
+tau2.d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot03.png")
+delta2.d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot04.png")
+b1.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot05.png")
+b2.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot06.png")
+
+plot_grid(alfa2.d,beta2.d,tau2.d,delta2.d,b1.2d,b2.2d)
+
+
+```
+
+```{r, echo=FALSE}
+
+alfa2.e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot01.png")
+beta2.e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot02.png")
+tau2.e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot03.png")
+delta2.e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot04.png")
+b1.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot05.png")
+b2.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot06.png")
+
+plot_grid(alfa2.e,beta2.e,tau2.e,delta2.e,b1.2e,b2.2e)
+
+```
+
+
+### Modelo 3
+
+$$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{\left(p_{ij}, o_{ij}\right)})$$
+
+En esta weá p y o dependen cuadráticamente
+
+
+[chantar toda la wea de graficos y tablas acá]
+
+
+```{r, echo=FALSE}
+
+alfa3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot01.png")
+beta3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot02.png")
+tau3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot03.png")
+delta3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot04.png")
+b1.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot05.png")
+b2.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot06.png")
+b3.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot07.png")
+b4.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot08.png")
+
+plot_grid(alfa3.a,beta3.a,tau3.a,delta3.a,b1.3a,b2.3a,b3.3a,b4.3a)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot01.png")
+beta3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot02.png")
+tau3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot03.png")
+delta3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot04.png")
+b1.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot05.png")
+b2.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot06.png")
+b3.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot07.png")
+b4.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot08.png")
+
+plot_grid(alfa3.b,beta3.b,tau3.b,delta3.b,b1.3b,b2.3b,b3.3b,b4.3b)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot01.png")
+beta3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot02.png")
+tau3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot03.png")
+delta3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot04.png")
+b1.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot05.png")
+b2.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot06.png")
+b3.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot07.png")
+b4.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot08.png")
+
+plot_grid(alfa3.c,beta3.c,tau3.c,delta3.c,b1.3c,b2.3c,b3.3c,b4.3c)
+
+```
+
+```{r, echo=FALSE}
+
+alfa3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot01.png")
+beta3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot02.png")
+tau3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot03.png")
+delta3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot04.png")
+b1.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot05.png")
+b2.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot06.png")
+b3.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot07.png")
+b4.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot08.png")
+
+plot_grid(alfa3.d,beta3.d,tau3.d,delta3.d,b1.3d,b2.3d,b3.3d,b4.3d)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot01.png")
+beta3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot02.png")
+tau3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot03.png")
+delta3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot04.png")
+b1.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot05.png")
+b2.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot06.png")
+b3.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot07.png")
+b4.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot08.png")
+
+plot_grid(alfa3.e,beta3.e,tau3.e,delta3.e,b1.3e,b2.3e,b3.3e,b4.3e)
+
+```
+
+
+### Modelo 4
+
+$$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{(p_{ij})})$$
+
+sólo p depende cuadráticamente
+
+
+
+[chantar toda la wea de graficos y tablas acá]
+
+```{r, echo=FALSE}
+
+alfa4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot01.png")
+beta4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot02.png")
+tau4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot03.png")
+delta4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot04.png")
+b1.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot05.png")
+b2.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot06.png")
+
+plot_grid(alfa4.a,beta4.a,tau4.a,delta4.a,b1.4a,b2.4a)
+
+```
+
+```{r, echo=FALSE}
+
+alfa4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot01.png")
+beta4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot02.png")
+tau4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot03.png")
+delta4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot04.png")
+b1.4b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot05.png")
+b2.4b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot06.png")
+
+plot_grid(alfa4.b,beta4.b,tau4.b,delta4.b,b1.4b,b2.4b)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot01.png")
+beta4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot02.png")
+tau4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot03.png")
+delta4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot04.png")
+b1.4c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot05.png")
+b2.4c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot06.png")
+
+plot_grid(alfa4.c,beta4.c,tau4.c,delta4.c,b1.4c,b2.4c)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot01.png")
+beta4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot02.png")
+tau4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot03.png")
+delta4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot04.png")
+b1.4d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot05.png")
+b2.4d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot06.png")
+
+plot_grid(alfa4.d,beta4.d,tau4.d,delta4.d,b1.4d,b2.4d)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot01.png")
+beta4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot02.png")
+tau4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot03.png")
+delta4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot04.png")
+b1.4e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot05.png")
+b2.4e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot06.png")
+
+plot_grid(alfa4.e,beta4.e,tau4.e,delta4.e,b1.4e,b2.4e)
+
+```
+
+
+### Modelo 5 
+
+$$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{(o_{ij})})$$
+
+Sólo O depende cuadráticamente
+
+
+[chantar toda la wea de graficos y tablas acá]
+
+
+```{r, echo=FALSE}
+
+alfa5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot01.png")
+beta5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot02.png")
+tau5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot03.png")
+delta5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot04.png")
+b1.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot05.png")
+b2.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot06.png")
+
+plot_grid(alfa5.a,beta5.a,tau5.a,delta5.a,b1.5a,b2.5a)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot01.png")
+beta5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot02.png")
+tau5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot03.png")
+delta5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot04.png")
+b1.5b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot05.png")
+b2.5b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot06.png")
+
+plot_grid(alfa5.b,beta5.b,tau5.b,delta5.b,b1.5b,b2.5b)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot01.png")
+beta5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot02.png")
+tau5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot03.png")
+delta5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot04.png")
+b1.5c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot05.png")
+b2.5c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot06.png")
+
+plot_grid(alfa5.c,beta5.c,tau5.c,delta5.c,b1.5c,b2.5c)
+
+
+```
+
+```{r, echo=FALSE}
+
+alfa5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot01.png")
+beta5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot02.png")
+tau5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot03.png")
+delta5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot04.png")
+b1.5d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot05.png")
+b2.5d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot06.png")
+
+plot_grid(alfa5.d,beta5.d,tau5.d,delta5.d,b1.5d,b2.5d)
+
+```
+
+
+```{r, echo=FALSE}
+
+alfa5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot01.png")
+beta5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot02.png")
+tau5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot03.png")
+delta5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot04.png")
+b1.5e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot05.png")
+b2.5e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot06.png")
+
+plot_grid(alfa5.e,beta5.e,tau5.e,delta5.e,b1.5e,b2.5e)
+
+```
+
+
+
+## Comentarios finales
+
+
+
+
+
+
+
