@@ -558,7 +558,7 @@ plot_grid(delta1.a,delta1.b,delta1.c,delta1.d, delta1.e)
 
 
 
-1[](results/tables/LOO.png)
+![](results/tables/LOO.png)
 
 
 
