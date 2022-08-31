@@ -2,20 +2,21 @@
 
 ### Integrantes 
 
-- Eugenio Guzmán
-- Alejandra Molina
-- Jaquelin Morillo
-- Diego Ramirez
-- Francisco Villarroel
+- Eugenio Guzmán^[ejguzmanl@udd.cl]
+- Alejandra Molina^[alejandramm@gmail.com]
+- Jaquelin Morillo^[jaquelin.morillo@gmail.com]
+- Diego Ramirez^[diegoramirez.al34@gmail.com]
+- Francisco Villarroel^[fvillarroelr@udd.cl]
 
 ## ¿Qué encontrarás acá?
 
 En el siguiente proyecto se encuentra el código, materiales y resultados para la replicación del informe final de métodos estadisticos, que consiste en el modelamiento y análisis de un experimentro de ruleta, habitualmente utilizado en neurociencias sociales.
 
 
-##¿Cómo puedo acceder a la información? 
+## ¿Cómo puedo acceder a la información? 
 
 - Si lo que necesitas es sólo revisar el informe, puedes acceder al archivo "informe_final.pdf", alojado al inicio del proyecto.
+- De manera adiciónal, los graficos y tablas están de manera separada en la carpeta "plot" y "tables", ambas alojadas en la carpeta "results"
 
 ## ¿Cómo puedo replicar toda su investigación?
 
@@ -25,3 +26,4 @@ En el siguiente proyecto se encuentra el código, materiales y resultados para l
 3) Correr el script y esperar los resultados.
 
 
+## 
