@@ -26,4 +26,4 @@ En el siguiente proyecto se encuentra el código, materiales y resultados para l
 3) Correr el script y esperar los resultados.
 
 
-## 
+**[En caso de problemas de replicación, favor contactar a cualquiera de los integrantes]**
