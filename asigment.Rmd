@@ -11,11 +11,11 @@ output: pdf_document
 
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, include=FALSE, message=FALSE, echo=FALSE, warning=FALSE}
 ipak <- function(pkg){
   new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
   if (length(new.pkg)) 
@@ -41,7 +41,7 @@ load("Downloads/resultsMod5.Rdata")
 ```
 
 
-## Introducción
+# Introducción
 
 
 HOLALA ESTE ES UN TRABAJO MUY BACán 
@@ -52,18 +52,18 @@ When you click the **Knit** button a document will be generated that includes bo
 
 
 
-## Driff Diffution model
+# Driff Diffution model
 
 You can also embed plots, for example:
 
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.ç
 
-## Explicación del experimento
+# Explicación del experimento
 
 Se observó el comportamiento de veinte personas mientras participaban en un juego de ruleta. Su tarea era apostar por uno de los dos colores (naranjo o celeste). Cada uno de los colores se identifica con la probabilidad de obtener un premio determinado. Algunas ruletas cuentan con un área gris (máscara) que oculta el verdadero color de la sección (ambigüedad).
 
-## Resultados
+# Resultados
 
 Se plantearon cinco modelos para resolver la consigna planteada.  
 
@@ -76,7 +76,7 @@ Se plantearon cinco modelos para resolver la consigna planteada.
 
 
 
-### Modelo 1 
+## Modelo 1 
 
 $$ Y_{(ij)} \sim \text { Wiener }(\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{(ij)})$$
 
@@ -86,7 +86,7 @@ Este modelo supone una distribucion Wiener dependiente de los parámetros alfa, 
 
 
 
-#### Gráficos
+### Gráficos
 
 
 ```{r, echo=FALSE}
@@ -145,7 +145,7 @@ plot_grid(alfa1.e,beta1.e,tau1.e,delta1.e)
 
 
 
-### Modelo 2
+## Modelo 2
 
 $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)} \delta_{\left(p_{ij}, o_{ij}\right)})$$
 
@@ -219,7 +219,7 @@ plot_grid(alfa2.e,beta2.e,tau2.e,delta2.e,b1.2e,b2.2e)
 ```
 
 
-### Modelo 3
+## Modelo 3
 
 $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{\left(p_{ij}, o_{ij}\right)})$$
 
@@ -308,7 +308,7 @@ plot_grid(alfa3.e,beta3.e,tau3.e,delta3.e,b1.3e,b2.3e,b3.3e,b4.3e)
 ```
 
 
-### Modelo 4
+## Modelo 4
 
 $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{(p_{ij})})$$
 
@@ -387,7 +387,7 @@ plot_grid(alfa4.e,beta4.e,tau4.e,delta4.e,b1.4e,b2.4e)
 ```
 
 
-### Modelo 5 
+## Modelo 5 
 
 $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{(o_{ij})})$$
 
