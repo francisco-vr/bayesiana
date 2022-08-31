@@ -132,10 +132,14 @@ Sólo O depende cuadráticamente
 ![](results/tables/mean_model5.png)
 
 
-### Resultados - análisis de parámetros comparados por modelo
+## Resultados - análisis de parámetros comparados por modelo
 
 
-#### Alfa Modelo 1
+### Alfa Modelo 1
+
+Mayores niveles de $\alpha$  _(trade-off Speed-accuracy)_ está relacionado con un mayor nivel de accuracy que tuvieron los participantes. Si comparamos todos los $\alpha$ , como se muestran en la figura 1, desde la figura 1 “alph.1a” (sin ambigüedad) hasta la “alph1.e” (mayor nivel de ambigüedad); es posible apreciar que entre menor grado de ambigüedad, más bajo es el nivel de $\alpha$ , es decir, menor accuracy, el que iría aumentando a medida que el contraste incrementa.
+
+Esto podría deberse a que en “alpha.1a”, la velocidad podría verse disminuida ya que los participantes pueden ver con claridad (no hay ambigüedad) la barra de la ruleta con los colores, y así, “tomarse más tiempo” para tomar una decisión; lo que no ocurriría en alpha1.e, ya que la barra tiene una máscara que oculta el verdadero color de esas áreas. 
 
 ```{r, echo=FALSE}
 alfa1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot01.png")
@@ -150,7 +154,9 @@ plot_grid(alfa1.a,alfa1.b,alfa1.c,alfa1.d,alfa1.e)
 ```
 
 
-#### alfa modelo 2
+### alfa modelo 2
+
+Con respecto a los $\alpha$ , a nivel general, al igual que en el modelo 1, cuando no se presenta el contraste o ambigüedad, el trade-off entre el tiempo y accuracy es menor, a que cuando hay ambigüedad.
 
 
 ```{r, echo=FALSE}
@@ -164,7 +170,10 @@ plot_grid(alfa2.a,alfa2.b,alfa2.c,alfa2.d,alfa2.e)
 ```
 
 
-# Alfa Modelo 3
+### Alfa Modelo 3
+
+En relación a los $\alpha$ , al igual que en los modelos anteriores (1 y 2), cuando no hay presencia de ambigüedad (contraste que oscurece la barra), el trade-off entre el tiempo y accuracy es menor a cuando si hay presencia de ambigüedad.
+
 
 ```{r, echo=FALSE}
 
@@ -178,7 +187,9 @@ plot_grid(alfa3.a,alfa3.b,alfa3.c,alfa3.d)
 
 ```
 
-#### Alfa modelo 4
+### Alfa modelo 4
+
+En relación a los $\alpha$ del modelo 3, al igual que en los modelos anteriores (1,2 y 3), cuando no hay presencia de ambigüedad (contraste que oscurece la barra), el trade-off entre el tiempo y accuracy, es menor a cuando si hay ambigüedad.
 
 ```{r, echo=FALSE}
 alfa4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot01.png")
@@ -192,7 +203,9 @@ plot_grid(alfa4.a,alfa4.b,alfa4.c,alfa4.d,alfa4.e)
 ```
 
 
-#### Alfa modelo 5
+### Alfa modelo 5
+
+Con respecto a los $\alpha$, a nivel general, al igual que en los modelos 1,2,3 y 4, cuando no se presenta el contraste o ambigüedad, el trade-off entre el tiempo y accuracy es menor a que cuando hay ambigüedad, o el contraste es ambiguo.
 
 ```{r, echo=FALSE}
 alfa5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot01.png")
@@ -208,7 +221,10 @@ plot_grid(alfa5.a,alfa5.b,alfa5.c,alfa5.d,alfa5.e)
 
 ### Betas
 
-#### Betas modelo 1
+### Betas modelo 1
+
+
+Respecto a los $\beta$, cuando no se presenta ambigüedad, es posible apreciar que existe cierto margen de sesgo _(bias)_ hacia presionar el botón de la ruleta izquierdo. Sin embargo, a medida que se va presentando ambigüedad, el sesgo deja de presentarse.
 
 ```{r, echo=FALSE}
 beta1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot02.png")
@@ -223,29 +239,8 @@ plot_grid(beta1.a,beta1.b,beta1.c,beta1.e)
 
 ### Betas modelo 2
 
-```{r, echo=FALSE}
-b0.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot04.png")
-b0.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot04.png")
-b0.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot04.png")
-b0.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot04.png")
-b0.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot04.png")
 
-plot_grid(b0.2a,b0.2b,b0.2c,b0.2d,b0.2e)
-
-```
-
-
-
-```{r, echo=FALSE}
-b1.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot05.png")
-b1.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot05.png")
-b1.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot05.png")
-b1.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot05.png")
-b1.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot05.png")
-
-plot_grid(b1.2a,b1.2b,b1.2c,b1.2d,b1.2e)
-
-```
+Respecto al $\beta$ o _bias inicial_, cuando no hay ambigüedad, nuevamente (al igual que el Beta del modelo 1), existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que se va presentando aumenta.
 
 
 ```{r, echo=FALSE}
@@ -260,17 +255,70 @@ plot_grid(beta2.a,beta2.b,beta2.c,beta2.d,beta2.e)
 
 ```
 
-```{r, echo=FALSE}
-b2.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot06.png")
-b2.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot06.png")
-b2.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot06.png")
-b2.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot06.png")
-b2.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot06.png")
 
-plot_grid(b2.2a,b2.2b,b2.2c,b2.2d,b2.2e)
+### Beta modelo 3
+
+Respecto al $\beta$, cuando no hay ambigüedad, nuevamente, existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que va teniendo el participante, aumenta.
+
+```{r, echo=FALSE}
+beta3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot02.png")
+beta3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot02.png")
+beta3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot02.png")
+beta3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot02.png")
+beta3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot02.png")
+
+
+plot_grid(beta3.a,beta3.b,beta3.c,beta3.d,beta3.e)
+
 ```
 
-#### Betas modelo 3
+### Beta modelo 4
+
+Respecto al $\beta$ o bias inicial, cuando no hay ambigüedad, nuevamente, existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que va teniendo el participante, aumenta.
+
+```{r, echo=FALSE}
+beta4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot02.png")
+beta4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot02.png")
+beta4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot02.png")
+beta4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot02.png")
+beta4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot02.png")
+
+plot_grid(beta4.a,beta4.b,beta4.c,beta4.d,beta4.e)
+
+```
+
+
+### Beta modelo 5 
+
+Respecto al $\beta$ o bias inicial, cuando no hay ambigüedad, nuevamente, existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que va teniendo el participante, aumenta.
+
+```{r, echo=FALSE}
+beta5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot03.png")
+beta5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot03.png")
+beta5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot03.png")
+beta5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot03.png")
+beta5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot03.png")
+
+plot_grid(beta5.a,beta5.b,beta5.c,beta5.d,beta5.e)
+
+```
+
+
+
+###b0 modelo 2
+
+```{r, echo=FALSE}
+b0.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot04.png")
+b0.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot04.png")
+b0.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot04.png")
+b0.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot04.png")
+b0.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot04.png")
+
+plot_grid(b0.2a,b0.2b,b0.2c,b0.2d,b0.2e)
+
+```
+
+#### B0 modelo 3
 
 ```{r, echo=FALSE}
 b0.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot04.png")
@@ -283,6 +331,49 @@ b0.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot04.png")
 plot_grid(b0.3a,b0.3b,b0.3c,b0.3d,b0.3e)
 
 ```
+
+#### B0 modelo 4
+
+```{r, echo=FALSE}
+b0.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot04.png")
+b0.4b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot04.png")
+b0.4c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot04.png")
+b0.4d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot04.png")
+b0.4e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot04.png")
+
+plot_grid(b0.4a, b0.4b, b0.4c, b0.4d, b0.4e)
+
+```
+
+### Beta0 . modelo 5
+
+```{r, echo=FALSE}
+b0.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot04.png")
+b0.5b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot04.png")
+b0.5c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot04.png")
+b0.5d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot04.png")
+b0.5e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot04.png")
+
+plot_grid(b0.5a,b0.5b,b0.5c,b0.5d,b0.5e)
+
+```
+
+
+###B1 modelo 2
+
+De acuerdo a los b1, tanto en condiciones de ambigüedad como de no ambigüedad, la probabilidad que acompaña al b1 si influye en el cálculo del drift.
+
+```{r, echo=FALSE}
+b1.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot05.png")
+b1.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot05.png")
+b1.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot05.png")
+b1.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot05.png")
+b1.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot05.png")
+
+plot_grid(b1.2a,b1.2b,b1.2c,b1.2d,b1.2e)
+
+```
+### B1 modelo 3
 
 
 ```{r, echo=FALSE}
@@ -298,68 +389,8 @@ plot_grid(b1.3a,b1.3b,b1.3c,b1.3d,b1.3e)
 
 ```
 
+###B1 modelo 4
 
-```{r, echo=FALSE}
-
-b2.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot06.png")
-b2.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot06.png")
-b2.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot06.png")
-b2.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot06.png")
-b2.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot06.png")
-
-plot_grid(b2.3a,b2.3b,b2.3c,b2.3d,b2.3e)
-
-```
-
-```{r, echo=FALSE}
-beta3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot02.png")
-beta3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot02.png")
-beta3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot02.png")
-beta3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot02.png")
-beta3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot02.png")
-
-
-plot_grid(beta3.a,beta3.b,beta3.c,beta3.d,beta3.e)
-
-```
-
-
-```{r, echo=FALSE}
-
-b3.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot07.png")
-b3.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot07.png")
-b3.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot07.png")
-b3.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot07.png")
-b3.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot07.png")
-
-plot_grid(b3.3a,b3.3b,b3.3c,b3.3d,b3.3e)
-
-```
-
-```{r, echo=FALSE}
-
-b4.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot08.png")
-b4.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot08.png")
-b4.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot08.png")
-b4.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot08.png")
-b4.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot08.png")
-
-plot_grid(b4.3a,b4.3b,b4.3c,b4.3d,b4.3e)
-
-```
-
-#### Betas modelo 4
-
-```{r, echo=FALSE}
-b0.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot04.png")
-b0.4b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot04.png")
-b0.4c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot04.png")
-b0.4d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot04.png")
-b0.4e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot04.png")
-
-plot_grid(b0.4a, b0.4b, b0.4c, b0.4d, b0.4e)
-
-```
 
 ```{r, echo=FALSE}
 b1.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot05.png")
@@ -372,44 +403,7 @@ plot_grid(b1.4a,b1.4b,b1.4c,b1.4d,b1.4e)
 
 ```
 
-```{r, echo=FALSE}
-b3.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot06.png")
-b3.4b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot06.png")
-b3.4c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot06.png")
-b3.4d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot06.png")
-b3.4e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot06.png")
-
-plot_grid(b3.4a,b3.4b,b3.4c,b3.4d,b3.4e)
-
-```
-
-
-```{r, echo=FALSE}
-beta4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot02.png")
-beta4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot02.png")
-beta4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot02.png")
-beta4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot02.png")
-beta4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot02.png")
-
-plot_grid(beta4.a,beta4.b,beta4.c,beta4.d,beta4.e)
-
-```
-
-
-### Betas modelo 5
-
-### Beta0
-
-```{r, echo=FALSE}
-b0.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot04.png")
-b0.5b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot04.png")
-b0.5c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot04.png")
-b0.5d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot04.png")
-b0.5e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot04.png")
-
-plot_grid(b0.5a,b0.5b,b0.5c,b0.5d,b0.5e)
-
-```
+### B1 modelo 5
 
 ```{r, echo=FALSE}
 b1.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot03.png")
@@ -423,6 +417,36 @@ plot_grid(b1.5a,b1.5b,b1.5c,b1.5d,b1.5e)
 ```
 
 
+###B2 modelo 2
+
+Finalmente, respecto a b2, tanto en condiciones de ambigüedad como de no ambigüedad, el pago que acompaña al b2 si influye en el cálculo del drift.
+
+```{r, echo=FALSE}
+b2.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot06.png")
+b2.2b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot06.png")
+b2.2c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot06.png")
+b2.2d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot06.png")
+b2.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot06.png")
+
+plot_grid(b2.2a,b2.2b,b2.2c,b2.2d,b2.2e)
+```
+
+### B2 Modelo 3
+
+
+```{r, echo=FALSE}
+
+b2.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot06.png")
+b2.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot06.png")
+b2.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot06.png")
+b2.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot06.png")
+b2.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot06.png")
+
+plot_grid(b2.3a,b2.3b,b2.3c,b2.3d,b2.3e)
+
+```
+### B2 modelo 5
+
 ```{r,echo=FALSE}
 b2.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot05.png")
 b2.5b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot05.png")
@@ -435,7 +459,48 @@ plot_grid(b2.5a,b2.5b,b2.5c,b2.5d,b2.5e)
 ```
 
 
-No hay beta3 (???)
+### B3 modelo 3
+
+```{r, echo=FALSE}
+
+b3.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot07.png")
+b3.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot07.png")
+b3.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot07.png")
+b3.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot07.png")
+b3.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot07.png")
+
+plot_grid(b3.3a,b3.3b,b3.3c,b3.3d,b3.3e)
+
+```
+
+### B3 modelo 4
+
+```{r, echo=FALSE}
+b3.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot06.png")
+b3.4b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot06.png")
+b3.4c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot06.png")
+b3.4d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot06.png")
+b3.4e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot06.png")
+
+plot_grid(b3.4a,b3.4b,b3.4c,b3.4d,b3.4e)
+
+```
+
+#B4 modelo 3
+
+```{r, echo=FALSE}
+
+b4.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot08.png")
+b4.3b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot08.png")
+b4.3c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot08.png")
+b4.3d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot08.png")
+b4.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot08.png")
+
+plot_grid(b4.3a,b4.3b,b4.3c,b4.3d,b4.3e)
+
+```
+
+### B4 modelo 5
 
 ```{r, echo=FALSE}
 b4.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot06.png")
@@ -448,16 +513,6 @@ plot_grid(b4.5a,b4.5b,b4.5c,b4.5d,b4.5e)
 
 ```
 
-```{r, echo=FALSE}
-beta5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot03.png")
-beta5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot03.png")
-beta5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot03.png")
-beta5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot03.png")
-beta5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot03.png")
-
-plot_grid(beta5.a,beta5.b,beta5.c,beta5.d,beta5.e)
-
-```
 
 
 ## Tau
