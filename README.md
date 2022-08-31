@@ -2,11 +2,11 @@
 
 ### Integrantes 
 
-- Eugenio Guzmán^[ejguzmanl@udd.cl]
-- Alejandra Molina^[alejandramm@gmail.com]
-- Jaquelin Morillo^[jaquelin.morillo@gmail.com]
-- Diego Ramirez^[diegoramirez.al34@gmail.com]
-- Francisco Villarroel^[fvillarroelr@udd.cl]
+- Eugenio Guzmán [ejguzmanl@udd.cl]
+- Alejandra Molina [alejandramm@gmail.com]
+- Jaquelin Morillo [jaquelin.morillo@gmail.com]
+- Diego Ramirez [diegoramirez.al34@gmail.com]
+- Francisco Villarroel [fvillarroelr@udd.cl]
 
 ## ¿Qué encontrarás acá?
 
