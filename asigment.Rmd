@@ -25,7 +25,7 @@ ipak <- function(pkg){
 
 # usage
 
-packages <- c("cowplot","dplyr","ggplot2","runjags","ggpubr")
+packages <- c("cowplot","dplyr","ggplot2","runjags","ggpubr","knitr")
 ipak(packages)
 
 ```
@@ -66,9 +66,21 @@ Se observó el comportamiento de veinte personas mientras participaban en un jue
 
 #Modelación
 
-![](materials/diagram_1.png)
 
-![](materials/diagram_2.png)
+```{r, echo=FALSE, out.width="70%",fig.align='center'}
+
+knitr::include_graphics("materials/diagram_1.png")
+
+```
+
+
+
+```{r, echo=FALSE, out.width="70%",fig.align='center'}
+
+knitr::include_graphics("materials/diagram_2.png")
+
+```
+
 
 # Resultados - Modelos y tablas sumarias
 
@@ -80,8 +92,12 @@ $$ Y_{(ij)} \sim \text { Wiener }(\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \del
 Este modelo supone una distribucion Wiener dependiente de los parámetros alfa, beta, tay y delta en función de los sujetos estudiados y los _trials_.
 
 
-![](results/tables/Mean_Model_1.png)
 
+```{r, echo=FALSE, out.width="80%",fig.align='center'}
+
+knitr::include_graphics("results/tables/Mean_Model_1.png")
+
+```
 
 
 ## Modelo 2
@@ -94,8 +110,12 @@ Al igual que el modelo 1  se contemplan los mismos parámetros, con la excepció
 [chantar toda la wea de graficos y tablas acá]
 
 
+```{r, echo=FALSE, out.width="80%",fig.align='center'}
 
-![](results/tables/Mean_model2.png)
+knitr::include_graphics("results/tables/Mean_model2.png")
+
+```
+
 
 
 ## Modelo 3
@@ -108,7 +128,12 @@ En esta weá p y o dependen cuadráticamente
 [chantar toda la wea de graficos y tablas acá]
 
 
-![](results/tables/mean_model3.png)
+
+```{r, echo=FALSE, out.width="80%",fig.align='center'}
+
+knitr::include_graphics("results/tables/mean_model3.png")
+
+```
 
 
 ## Modelo 4
@@ -117,8 +142,12 @@ $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_
 
 sólo p depende cuadráticamente
 
-![](results/tables/mean_model4.png)
 
+```{r, echo=FALSE, out.width="80%",fig.align='center'}
+
+knitr::include_graphics("results/tables/mean_model4.png")
+
+```
 
 ## Modelo 5 
 
@@ -129,8 +158,11 @@ Sólo O depende cuadráticamente
 
 [chantar toda la wea de graficos y tablas acá]
 
-![](results/tables/mean_model5.png)
+```{r, echo=FALSE, out.width="80%",fig.align='center'}
 
+knitr::include_graphics("results/tables/mean_model5.png")
+
+```
 
 ## Resultados - análisis de parámetros comparados por modelo
 
@@ -607,15 +639,30 @@ plot_grid(delta1.a,delta1.b,delta1.c,delta1.d, delta1.e)
 
 [chantar toda la wea de graficos y tablas acá]
 
-### Ajuste de modelo DIC y lOO
+### Ajuste de modelo DIC y LOO
 
-![](results/tables/DIC.png)
-
-
-
-![](results/tables/LOO.png)
+Como queda en evidencia en la tabla 6, el DIC indica que en el experimento sin máscara (A), el modelo que mas se ajusta a los datos es aquel que incorpora la probabilidad y el premio en una relación cuadrática. Este hallazgo se repite para todos los niveles de ambigüedad, exceptuando la máscara al 0.6 (E) y  y al 0.3 (B). No obstante, esta diferencia es marginal.  
 
 
+```{r, echo=FALSE, out.width="42%", fig.align='center'}
+
+knitr::include_graphics("results/tables/DIC.png")
+
+```
+
+
+Los hallazgos resultantes del DIC son concordantes al revisar el Leave-One-Out (LOO), dado que el modelo 3 sigue siendo el de mejor ajuste en función a la muestra trabajada, con una diferencia marginal con el modelo 2 (el cual muestra un ajuste ligeramente mejor en las máscaras al 0.3 y 0.6).
+
+
+```{r, echo=FALSE, out.width="42%", fig.align='center'}
+
+knitr::include_graphics("results/tables/LOO.png")
+
+```
+
+Los hallazgos resultantes del DIC son concordantes al revisar el Leave-One-Out (LOO), dado que el modelo 3 sigue siendo el de mejor ajuste en función a la muestra trabajada, con una diferencia marginal con el modelo 2 (el cual muestra un ajuste ligeramente mejor en las máscaras al 0.3 y 0.6).
+
+Finalmente, como próximos desafíos, sería interesante ahondar en otras funciones para la relación de la probabilidad y el premio con el Drift.
 
 ## Comentarios finales
 
