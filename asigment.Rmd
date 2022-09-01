@@ -47,7 +47,8 @@ load("Downloads/resultsMod5.Rdata")
 
 El siguiente trabajo, es un análisis desde una metodología Bayesiana en la cual se revisan 5 modelos de toma de decisión usando como función enlace la distribución _Wiener_ (Drift Diffusion Models, DDM); y también se compara el ajuste de los modelos desarrollados, usando DIC (_deviance information criterion_) y LOO (_Leave-one-out cross-validation_).
 
-Los procesos de Wiener son importantes en el cálculo estocástico y, por lo tanto, cuando se desconoce la función que maximiza o minimiza el resultado. En metodología bayesiana, la distribución Wiener nos permite encontrar el extremo (sea máximo o mínimo), a priori, del mejor resultado posible, dado nuestras variables y valores. Esta nos permite, calcular la distribución de probabilidad de los puntos extremos del modelo, para cada intervalo, condicionado por los valores conocidos en los límites del intervalo. De esta manera, nos proporciona un criterio para seleccionar el intervalo en que se debe iterar el proceso, y así, incrementar también, la posibilidad de obtener una distribución normal [@guerinBayesianEstimationDegradation2010] (Guérin et al., 2010; van de Schoot, 2021; Wabersich, 2014).
+Los procesos de Wiener son importantes en el cálculo estocástico y, por lo tanto, cuando se desconoce la función que maximiza o minimiza el resultado. En metodología bayesiana, la distribución Wiener nos permite encontrar el extremo (sea máximo o mínimo), a priori, del mejor resultado posible, dado nuestras variables y valores. Esta nos permite, calcular la distribución de probabilidad de los puntos extremos del modelo, para cada intervalo, condicionado por los valores conocidos en los límites del intervalo. De esta manera, nos proporciona un criterio para seleccionar el intervalo en que se debe iterar el proceso, y así, incrementar también, la posibilidad de obtener una distribución normal [@guerinBayesianEstimationDegradation2010; @vandeschootBayesianStatisticsModelling2021a; @wabersichExtendingJAGSTutorial2014].
+
 El modelo estándar de difusión de Wiener incorpora los siguientes cuatro parámetros, que se detallan a continuación:
 
 ```{r, echo=FALSE, out.width="65%",fig.align='center'}
@@ -56,7 +57,7 @@ knitr::include_graphics("materials/table_parameters.png")
 
 ```
 
-Utilizamos el módulo JAGS Wiener (Wabersich & Vandekerckhove, 2013) en JAGS (Plummer, 2004), a través del paquete rjags (Plummer & Stukalov, 2013) en R-statistics, para estimar las distribuciones.
+Utilizamos el módulo JAGS Wiener [@wabersichExtendingJAGSTutorial2014] en JAGS, a través del paquete rjags en R-statistics, para estimar las distribuciones.
 
 # Driff Diffution model
 
