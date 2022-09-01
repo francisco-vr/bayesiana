@@ -1,0 +1,13 @@
+model {
+  
+  alph ~ dunif(0.1,5)
+  ta ~ dunif(0,1)
+  bet ~ dunif(0,1)
+  delt ~ dunif(-5,5)
+  
+  for (i in 1:Ntotal) {
+    y[i] ~ dwiener(alph,ta,bet,delt)
+    y_dlog[i] = logdensity.wiener(y[i],alph,ta,bet,delt)
+  }
+  
+}
