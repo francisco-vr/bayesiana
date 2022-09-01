@@ -64,7 +64,7 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 Se observó el comportamiento de veinte personas mientras participaban en un juego de ruleta. Su tarea era apostar por uno de los dos colores (naranjo o celeste). Cada uno de los colores se identifica con la probabilidad de obtener un premio determinado. Algunas ruletas cuentan con un área gris (máscara) que oculta el verdadero color de la sección (ambigüedad).
 
 
-#Modelación
+# Modelación
 
 
 ```{r, echo=FALSE, out.width="70%",fig.align='center'}
@@ -75,7 +75,7 @@ knitr::include_graphics("materials/diagram_1.png")
 
 
 
-```{r, echo=FALSE, out.width="70%",fig.align='center'}
+```{r, echo=FALSE, out.width="65%",fig.align='center'}
 
 knitr::include_graphics("materials/diagram_2.png")
 
@@ -107,7 +107,6 @@ $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)} \delta_{
 Al igual que el modelo 1  se contemplan los mismos parámetros, con la excepción que el parámetro delta depende linealmente de la probabilidad y del premio normalizado
 
 
-[chantar toda la wea de graficos y tablas acá]
 
 
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
@@ -124,8 +123,6 @@ $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_
 
 En esta weá p y o dependen cuadráticamente
 
-
-[chantar toda la wea de graficos y tablas acá]
 
 
 
@@ -164,10 +161,11 @@ knitr::include_graphics("results/tables/mean_model5.png")
 
 ```
 
-## Resultados - análisis de parámetros comparados por modelo
+# Resultados - Análisis de parámetros comparados por modelo
 
+## Parámetro Alfa
 
-### Alfa Modelo 1
+### Modelo 1
 
 Mayores niveles de $\alpha$  _(trade-off Speed-accuracy)_ está relacionado con un mayor nivel de accuracy que tuvieron los participantes. Si comparamos todos los $\alpha$ , como se muestran en la figura 1, desde la figura 1 “alph.1a” (sin ambigüedad) hasta la “alph1.e” (mayor nivel de ambigüedad); es posible apreciar que entre menor grado de ambigüedad, más bajo es el nivel de $\alpha$ , es decir, menor accuracy, el que iría aumentando a medida que el contraste incrementa.
 
@@ -186,7 +184,7 @@ plot_grid(alfa1.a,alfa1.b,alfa1.c,alfa1.d,alfa1.e)
 ```
 
 
-### alfa modelo 2
+### Modelo 2
 
 Con respecto a los $\alpha$ , a nivel general, al igual que en el modelo 1, cuando no se presenta el contraste o ambigüedad, el trade-off entre el tiempo y accuracy es menor, a que cuando hay ambigüedad.
 
@@ -202,7 +200,7 @@ plot_grid(alfa2.a,alfa2.b,alfa2.c,alfa2.d,alfa2.e)
 ```
 
 
-### Alfa Modelo 3
+### Modelo 3
 
 En relación a los $\alpha$ , al igual que en los modelos anteriores (1 y 2), cuando no hay presencia de ambigüedad (contraste que oscurece la barra), el trade-off entre el tiempo y accuracy es menor a cuando si hay presencia de ambigüedad.
 
@@ -219,7 +217,7 @@ plot_grid(alfa3.a,alfa3.b,alfa3.c,alfa3.d)
 
 ```
 
-### Alfa modelo 4
+### Modelo 4
 
 En relación a los $\alpha$ del modelo 3, al igual que en los modelos anteriores (1,2 y 3), cuando no hay presencia de ambigüedad (contraste que oscurece la barra), el trade-off entre el tiempo y accuracy, es menor a cuando si hay ambigüedad.
 
@@ -235,7 +233,7 @@ plot_grid(alfa4.a,alfa4.b,alfa4.c,alfa4.d,alfa4.e)
 ```
 
 
-### Alfa modelo 5
+### Modelo 5
 
 Con respecto a los $\alpha$, a nivel general, al igual que en los modelos 1,2,3 y 4, cuando no se presenta el contraste o ambigüedad, el trade-off entre el tiempo y accuracy es menor a que cuando hay ambigüedad, o el contraste es ambiguo.
 
@@ -251,9 +249,9 @@ plot_grid(alfa5.a,alfa5.b,alfa5.c,alfa5.d,alfa5.e)
 ```
 
 
-### Betas
+## Betas
 
-### Betas modelo 1
+### Modelo 1
 
 
 Respecto a los $\beta$, cuando no se presenta ambigüedad, es posible apreciar que existe cierto margen de sesgo _(bias)_ hacia presionar el botón de la ruleta izquierdo. Sin embargo, a medida que se va presentando ambigüedad, el sesgo deja de presentarse.
@@ -269,7 +267,7 @@ plot_grid(beta1.a,beta1.b,beta1.c,beta1.e)
 ```
 
 
-### Betas modelo 2
+### Modelo 2
 
 
 Respecto al $\beta$ o _bias inicial_, cuando no hay ambigüedad, nuevamente (al igual que el Beta del modelo 1), existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que se va presentando aumenta.
@@ -288,7 +286,7 @@ plot_grid(beta2.a,beta2.b,beta2.c,beta2.d,beta2.e)
 ```
 
 
-### Beta modelo 3
+### Modelo 3
 
 Respecto al $\beta$, cuando no hay ambigüedad, nuevamente, existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que va teniendo el participante, aumenta.
 
@@ -304,7 +302,7 @@ plot_grid(beta3.a,beta3.b,beta3.c,beta3.d,beta3.e)
 
 ```
 
-### Beta modelo 4
+### Modelo 4
 
 Respecto al $\beta$ o bias inicial, cuando no hay ambigüedad, nuevamente, existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que va teniendo el participante, aumenta.
 
@@ -320,9 +318,10 @@ plot_grid(beta4.a,beta4.b,beta4.c,beta4.d,beta4.e)
 ```
 
 
-### Beta modelo 5 
+### Modelo 5 
 
 Respecto al $\beta$ o bias inicial, cuando no hay ambigüedad, nuevamente, existe un sesgo hacia presionar la barra izquierda, versus la derecha. Fenómeno que tendería a desaparecer a medida que el contraste de la barra y/o ambigüedad que va teniendo el participante, aumenta.
+
 
 ```{r, echo=FALSE}
 beta5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot03.png")
@@ -335,9 +334,9 @@ plot_grid(beta5.a,beta5.b,beta5.c,beta5.d,beta5.e)
 
 ```
 
+## B0
 
-
-###b0 modelo 2
+### Modelo 2
 
 ```{r, echo=FALSE}
 b0.2a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot04.png")
@@ -350,7 +349,7 @@ plot_grid(b0.2a,b0.2b,b0.2c,b0.2d,b0.2e)
 
 ```
 
-#### B0 modelo 3
+#### Modelo 3
 
 ```{r, echo=FALSE}
 b0.3a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot04.png")
@@ -364,7 +363,7 @@ plot_grid(b0.3a,b0.3b,b0.3c,b0.3d,b0.3e)
 
 ```
 
-#### B0 modelo 4
+#### Modelo 4
 
 ```{r, echo=FALSE}
 b0.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot04.png")
@@ -377,7 +376,7 @@ plot_grid(b0.4a, b0.4b, b0.4c, b0.4d, b0.4e)
 
 ```
 
-### Beta0 . modelo 5
+### Modelo 5
 
 ```{r, echo=FALSE}
 b0.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot04.png")
@@ -390,8 +389,9 @@ plot_grid(b0.5a,b0.5b,b0.5c,b0.5d,b0.5e)
 
 ```
 
+## B1
 
-###B1 modelo 2
+### Modelo 2
 
 De acuerdo a los b1, tanto en condiciones de ambigüedad como de no ambigüedad, la probabilidad que acompaña al b1 si influye en el cálculo del drift.
 
@@ -405,8 +405,9 @@ b1.2e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot05.png")
 plot_grid(b1.2a,b1.2b,b1.2c,b1.2d,b1.2e)
 
 ```
-### B1 modelo 3
+### Modelo 3
 
+De acuerdo a los b1, a diferencia del modelo 1 y 2, ahora, a medida que se va presentando un aumento de contraste (o ambigüedad), la probabilidad que acompaña al b1 deja de influir en el cálculo del drift.
 
 ```{r, echo=FALSE}
 
@@ -421,8 +422,9 @@ plot_grid(b1.3a,b1.3b,b1.3c,b1.3d,b1.3e)
 
 ```
 
-###B1 modelo 4
+### Modelo 4
 
+De acuerdo a los b1, tanto en condiciones de ambigüedad como de no ambigüedad, la probabilidad que acompaña al b1 no influye en el cálculo del drift, sin embargo, esto cambia según el contraste que se les presente a los participantes.
 
 ```{r, echo=FALSE}
 b1.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot05.png")
@@ -435,21 +437,11 @@ plot_grid(b1.4a,b1.4b,b1.4c,b1.4d,b1.4e)
 
 ```
 
-### B1 modelo 5
-
-```{r, echo=FALSE}
-b1.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot03.png")
-b1.5b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot03.png")
-b1.5c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot03.png")
-b1.5d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot03.png")
-b1.5e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot03.png")
-
-plot_grid(b1.5a,b1.5b,b1.5c,b1.5d,b1.5e)
-
-```
 
 
-###B2 modelo 2
+## B2
+
+### Modelo 2
 
 Finalmente, respecto a b2, tanto en condiciones de ambigüedad como de no ambigüedad, el pago que acompaña al b2 si influye en el cálculo del drift.
 
@@ -465,6 +457,7 @@ plot_grid(b2.2a,b2.2b,b2.2c,b2.2d,b2.2e)
 
 ### B2 Modelo 3
 
+A nivel general el pago que acompaña a b2 si influye en el cálculo del drift, a excepción del b2.3d.
 
 ```{r, echo=FALSE}
 
@@ -477,7 +470,10 @@ b2.3e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot06.png")
 plot_grid(b2.3a,b2.3b,b2.3c,b2.3d,b2.3e)
 
 ```
+
 ### B2 modelo 5
+
+De acuerdo a los b2 (modelo no incluye ni b1 ni b3), a nivel general, el pago que acompaña a b2, influye y no influye en el cálculo del _drift_, dependiendo del nivel de ambigüedad (o no) que se presenta a los participantes. Por ejemplo en b2.5a, b2.5b, y b2.5d si influye, pero en b2.5c y b2.5e no influye.
 
 ```{r,echo=FALSE}
 b2.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot05.png")
@@ -490,8 +486,9 @@ plot_grid(b2.5a,b2.5b,b2.5c,b2.5d,b2.5e)
 
 ```
 
-
 ### B3 modelo 3
+
+De acuerdo a los b3, que es una función cuadrática de la probabilidad; es posible apreciar que a medida que aumenta la ambigüedad la probabilidad de los b3 no influye en el cálculo drift.
 
 ```{r, echo=FALSE}
 
@@ -507,6 +504,8 @@ plot_grid(b3.3a,b3.3b,b3.3c,b3.3d,b3.3e)
 
 ### B3 modelo 4
 
+Finalmente, de acuerdo a los b3 (el modelo no incluye b2 y b4), sólo en condiciones de ambigüedad, la probabilidad que acompaña al b3 no influye en el cálculo del drift, sin embargo, esto cambia según el contraste en el que estén los participantes.
+
 ```{r, echo=FALSE}
 b3.4a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot06.png")
 b3.4b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot06.png")
@@ -518,7 +517,12 @@ plot_grid(b3.4a,b3.4b,b3.4c,b3.4d,b3.4e)
 
 ```
 
-#B4 modelo 3
+## B4
+
+#### Modelo 3
+
+Finalmente, con respecto a los b4, que es una función cuadrática del pago, es posible apreciar que a medida que aumenta la ambigüedad (al igual que el caso anterior) el pago no influye en el drift.
+
 
 ```{r, echo=FALSE}
 
@@ -532,7 +536,9 @@ plot_grid(b4.3a,b4.3b,b4.3c,b4.3d,b4.3e)
 
 ```
 
-### B4 modelo 5
+### Modelo 5
+
+Finalmente, con respecto a los b4, de manera similar al b2, hay casos en que el pago influye en el drift, y casos en que no, independientemente del nivel de ambigüedad.
 
 ```{r, echo=FALSE}
 b4.5a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot06.png")
@@ -550,8 +556,9 @@ plot_grid(b4.5a,b4.5b,b4.5c,b4.5d,b4.5e)
 ## Tau
 
 
-### Tau modelo 1
+### Modelo 1
 
+Finalmente, con respecto a los “tau” o tiempos de no-decisión (tiempo de respuestas motoras, tiempo de codificación, entre otros), los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste (que cuando no lo hay).
 
 ```{r,echo=FALSE}
 tau1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot03.png")
@@ -564,8 +571,9 @@ tau1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot03.png")
 plot_grid(tau1.a,tau1.b,tau1.c,tau1.d,tau1.e)
 ```
 
-### Tau Modelo 2
+### Modelo 2
 
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste, al igual que en el tau del modelo 1.
 
 ```{r, echo=FALSE}
 
@@ -578,7 +586,9 @@ tau2.e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot03.png")
 plot_grid(tau2.a,tau2.b,tau2.c,tau2.d,tau2.e)
 ```
 
-### Tau modelo 3
+### Modelo 3
+
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste.
 
 ```{r, echo=FALSE}
 
@@ -594,7 +604,9 @@ plot_grid(tau3.a,tau3.b,tau3.c,tau3.d,tau3.e)
 ```
 
 
-### Tau modelo 4
+### Modelo 4
+
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste, patrón que se repite en los modelos anteriores.
 
 ```{r, echo=FALSE}
 tau4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot03.png")
@@ -607,7 +619,9 @@ plot_grid(tau4.a,tau4.b,tau4.c,tau4.d,tau4.e)
 ```
 
 
-### Tau modelo 5
+### Modelo 5
+
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste.
 
 ```{r, echo=FALSE}
 tau5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot02.png")
@@ -637,9 +651,9 @@ plot_grid(delta1.a,delta1.b,delta1.c,delta1.d, delta1.e)
 ```
 
 
-[chantar toda la wea de graficos y tablas acá]
 
-### Ajuste de modelo DIC y LOO
+
+# Ajuste de modelo DIC y LOO
 
 Como queda en evidencia en la tabla 6, el DIC indica que en el experimento sin máscara (A), el modelo que mas se ajusta a los datos es aquel que incorpora la probabilidad y el premio en una relación cuadrática. Este hallazgo se repite para todos los niveles de ambigüedad, exceptuando la máscara al 0.6 (E) y  y al 0.3 (B). No obstante, esta diferencia es marginal.  
 
@@ -664,7 +678,7 @@ Los hallazgos resultantes del DIC son concordantes al revisar el Leave-One-Out (
 
 Finalmente, como próximos desafíos, sería interesante ahondar en otras funciones para la relación de la probabilidad y el premio con el Drift.
 
-## Comentarios finales
+# Comentarios finales
 
 
 
