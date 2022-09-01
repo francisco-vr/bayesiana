@@ -44,13 +44,18 @@ load("Downloads/resultsMod5.Rdata")
 # Introducción
 
 
-HOLA ESTE ES UN TRABAJO MUY BACán 
+El siguiente trabajo, es un análisis desde una metodología Bayesiana en la cual se revisan 5 modelos de toma de decisión usando como función enlace la distribución _Wiener_ (Drift Diffusion Models, DDM); y también se compara el ajuste de los modelos desarrollados, usando DIC (_deviance information criterion_) y LOO (_Leave-one-out cross-validation_).
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Los procesos de Wiener son importantes en el cálculo estocástico y, por lo tanto, cuando se desconoce la función que maximiza o minimiza el resultado. En metodología bayesiana, la distribución Wiener nos permite encontrar el extremo (sea máximo o mínimo), a priori, del mejor resultado posible, dado nuestras variables y valores. Esta nos permite, calcular la distribución de probabilidad de los puntos extremos del modelo, para cada intervalo, condicionado por los valores conocidos en los límites del intervalo. De esta manera, nos proporciona un criterio para seleccionar el intervalo en que se debe iterar el proceso, y así, incrementar también, la posibilidad de obtener una distribución normal (Guérin et al., 2010; van de Schoot, 2021; Wabersich, 2014).
+El modelo estándar de difusión de Wiener incorpora los siguientes cuatro parámetros, que se detallan a continuación:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r, echo=FALSE, out.width="65%",fig.align='center'}
 
+knitr::include_graphics("materials/table_parameters.png")
 
+```
+
+Utilizamos el módulo JAGS Wiener (Wabersich & Vandekerckhove, 2013) en JAGS (Plummer, 2004), a través del paquete rjags (Plummer & Stukalov, 2013) en R-statistics, para estimar las distribuciones.
 
 # Driff Diffution model
 
@@ -61,7 +66,31 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 # Explicación del experimento
 
-Se observó el comportamiento de veinte personas mientras participaban en un juego de ruleta. Su tarea era apostar por uno de los dos colores (naranjo o celeste). Cada uno de los colores se identifica con la probabilidad de obtener un premio determinado. Algunas ruletas cuentan con un área gris (máscara) que oculta el verdadero color de la sección (ambigüedad).
+Veinte personas participaron en un juego de ruleta, donde debían apostar a uno de los dos colores: naranjo o celeste. Cada color está asociado a una probabilidad de dar un premio, el que está indicado por el área de ese color en la barra de una ruleta, y al monto de dicho premio potencial, indicado por el número sobre la barra. Además, algunas ruletas (botones de la barra) tenían áreas grises que representan una máscara que oculta el verdadero color de esas áreas.  Esta condición se conoce como ambigüedad, y tuvo un rango de 0(sin ambigüedad; 0.3; 0.4; 0.5: 0.6.
+
+Las variables presentes en la base de datos y que se utilizan para calcular son:
+
+- **P**: Probabilidad del color naranjo. La probabilidad del color celeste es el complemento (1-p).
+
+- **O**: Premio normalizado del color naranjo. El premio del color celeste es el complemento (1-o)
+
+- **a**: Rango de la máscara o grado de ambigüedad a=[0 .3 .4 .5 .6 ]
+
+- **bias** : Lugar donde estaba la verdadera división de los colores dentro de la máscara. 0: margen izquierdo, 0.5: mitad, 1: margen derecho.
+
+- **pv**: Probabilidad visible izquierdo, ignorando el área de la máscara. probabilidad visible derecha 1-pv.
+
+- **ttp**: tiempo de aparición de las opciones, en sub milisegundos. 10000 sub milisegundos = 1 segundo
+
+- **ttr**: tiempo de la respuesta.
+
+- **F**: Resultados (1: izquierda, 2 Derecha) 
+
+- **r**: Decisión (1: izquierda, 2 Derecha)
+
+- **B**: bloque o repetición del experimento en el mismo sujeto
+
+- **sub**: identificador de cada participante
 
 
 # Modelación

@@ -3,16 +3,26 @@ graphics.off() # Borrar gráficos
 rm(list=ls())  # Borrar memoria
 # General------------------------------------------------------------------------------ 
 # Cargar librerias y modulo wiener
-library(runjags)
-library(rjags)
-library(tidyverse)
-library(loo)
-setwd('C:/Users/aleja/OneDrive/Escritorio/evaluacion/')
+
+ipak <- function(pkg){
+  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(new.pkg)) 
+    install.packages(new.pkg, dependencies = TRUE)
+  sapply(pkg, require, character.only = TRUE)
+}
+
+# usage
+
+packages <- c("runjags","rjags","tidyverse","loo")
+ipak(packages)
+
+#setwd('C:/Users/aleja/OneDrive/Escritorio/evaluacion/')
+
 load.module("wiener")
 source("HDIofMCMC.r") # Load the HDI function
 
 # Cargar base de datos
-load('DM_data.Rdata')
+load('Data/DM_data.Rdata')
 
 #Recodificacion tiempos de reaccion con signo (izquierda negativo/derecha positivo)
 RT <- (DATA$ttr-DATA$ttp)/10000 
