@@ -7,7 +7,7 @@
 
 
 ## Procesamiento y análisis de información
-source("scripts/processing and analysis.R")
+source("scripts/processing_analysis.R.R")
 
 ## Modelos de análisis
 
