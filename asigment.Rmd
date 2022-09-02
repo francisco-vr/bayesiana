@@ -181,14 +181,14 @@ knitr::include_graphics("results/tables/Mean_model2.png")
 
 ```
 
-
+\pagebreak
 
 ## Modelo 3
 
 $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{\left(p_{ij}, o_{ij}\right)})$$
 
 
-```{r, echo=FALSE, out.width="80%",fig.align='center'}
+```{r, echo=FALSE, out.width="75%",fig.align='center'}
 
 knitr::include_graphics("results/tables/mean_model3.png")
 
@@ -200,13 +200,11 @@ knitr::include_graphics("results/tables/mean_model3.png")
 $$Y_{(ij)} \sim \text{Wiener} (\alpha_{(ij)}, \beta_{(ij)}, \tau_{(ij)}, \delta_{(p_{ij})})$$
 
 
-```{r, echo=FALSE, out.width="80%",fig.align='center'}
+```{r, echo=FALSE, out.width="75%",fig.align='center'}
 
 knitr::include_graphics("results/tables/mean_model4.png")
 
 ```
-
-\pagebreak
 
 ## Modelo 5 
 
@@ -221,7 +219,7 @@ knitr::include_graphics("results/tables/mean_model5.png")
 
 # Resultados - Análisis de parámetros comparados por modelo
 
-## Parámetro Alfa
+## Parámetro $\alpha$
 
 ### Modelo 1
 
@@ -310,7 +308,92 @@ plot_grid(alfa5.a,alfa5.b,alfa5.c,alfa5.d,alfa5.e)
 
 \pagebreak
 
-## Betas
+## Parámetro $\tau$
+
+### Modelo 1
+
+Finalmente, con respecto a los “tau” o tiempos de no-decisión (tiempo de respuestas motoras, tiempo de codificación, entre otros), los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste (que cuando no lo hay).
+
+```{r,echo=FALSE, out.width="90%", fig.align='center'}
+tau1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot03.png")
+tau1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot03.png")
+tau1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot03.png")
+tau1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot03.png")
+tau1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot03.png")
+
+
+plot_grid(tau1.a,tau1.b,tau1.c,tau1.d,tau1.e)
+```
+
+### Modelo 2
+
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste, al igual que en el tau del modelo 1.
+
+```{r, echo=FALSE, out.width="90%", fig.align='center'}
+
+tau2.a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot03.png")
+tau2.b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot03.png")
+tau2.c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot03.png")
+tau2.d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot03.png")
+tau2.e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot03.png")
+
+plot_grid(tau2.a,tau2.b,tau2.c,tau2.d,tau2.e)
+```
+
+\pagebreak
+
+### Modelo 3
+
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste.
+
+```{r, echo=FALSE}
+
+tau3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot03.png")
+tau3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot03.png")
+tau3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot03.png")
+tau3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot03.png")
+tau3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot03.png")
+
+
+plot_grid(tau3.a,tau3.b,tau3.c,tau3.d,tau3.e)
+
+```
+
+
+### Modelo 4
+
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste, patrón que se repite en los modelos anteriores.
+
+```{r, echo=FALSE}
+tau4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot03.png")
+tau4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot03.png")
+tau4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot03.png")
+tau4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot03.png")
+tau4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot03.png")
+
+plot_grid(tau4.a,tau4.b,tau4.c,tau4.d,tau4.e)
+```
+
+
+### Modelo 5
+
+Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste.
+
+```{r, echo=FALSE}
+tau5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot02.png")
+tau5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot02.png")
+tau5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot02.png")
+tau5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot02.png")
+tau5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot02.png")
+
+plot_grid(tau5.a,tau5.b,tau5.c,tau5.d,tau5.e)
+
+```
+
+\pagebreak
+
+
+## Parámetro $\beta$
 
 ### Modelo 1
 
@@ -397,7 +480,22 @@ plot_grid(beta5.a,beta5.b,beta5.c,beta5.d,beta5.e)
 
 \pagebreak
 
-## B0
+### Parámetro $\delta$
+
+#### Modelo 1
+
+```{r, echo=FALSE, fig.align='center'}
+
+delta1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot04.png")
+delta1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot04.png")
+delta1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot04.png")
+delta1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot04.png")
+delta1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot04.png")
+
+plot_grid(delta1.a,delta1.b,delta1.c,delta1.d, delta1.e)
+```
+
+## Parámetro B0
 
 ### Modelo 2
 
@@ -413,7 +511,8 @@ plot_grid(b0.2a,b0.2b,b0.2c,b0.2d,b0.2e)
 
 ```
 
-\
+\pagebreak
+
 
 #### Modelo 3
 
@@ -429,7 +528,6 @@ plot_grid(b0.3a,b0.3b,b0.3c,b0.3d,b0.3e)
 
 ```
 
-\pagebreak
 
 #### Modelo 4
 
@@ -444,7 +542,7 @@ plot_grid(b0.4a, b0.4b, b0.4c, b0.4d, b0.4e)
 
 ```
 
-\
+\pagebreak
 
 ### Modelo 5
 
@@ -461,7 +559,7 @@ plot_grid(b0.5a,b0.5b,b0.5c,b0.5d,b0.5e)
 
 \pagebreak
 
-## B1
+## Parámetro B1
 
 ### Modelo 2
 
@@ -515,7 +613,7 @@ plot_grid(b1.4a,b1.4b,b1.4c,b1.4d,b1.4e)
 
 \pagebreak
 
-## B2
+## Parámetro B2
 
 ### Modelo 2
 
@@ -569,7 +667,7 @@ plot_grid(b2.5a,b2.5b,b2.5c,b2.5d,b2.5e)
 
 \pagebreak
 
-## B3
+## Parámetro B3
 
 ### Modelo 3
 
@@ -604,7 +702,7 @@ plot_grid(b3.4a,b3.4b,b3.4c,b3.4d,b3.4e)
 
 \pagebreak
 
-## B4
+## Parámetro B4
 
 #### Modelo 3
 
@@ -639,107 +737,6 @@ plot_grid(b4.5a,b4.5b,b4.5c,b4.5d,b4.5e)
 ```
 
 \pagebreak
-
-## Tau
-
-### Modelo 1
-
-Finalmente, con respecto a los “tau” o tiempos de no-decisión (tiempo de respuestas motoras, tiempo de codificación, entre otros), los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste (que cuando no lo hay).
-
-```{r,echo=FALSE, out.width="90%", fig.align='center'}
-tau1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot03.png")
-tau1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot03.png")
-tau1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot03.png")
-tau1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot03.png")
-tau1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot03.png")
-
-
-plot_grid(tau1.a,tau1.b,tau1.c,tau1.d,tau1.e)
-```
-
-### Modelo 2
-
-Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste, al igual que en el tau del modelo 1.
-
-```{r, echo=FALSE, out.width="90%", fig.align='center'}
-
-tau2.a <-ggdraw() + draw_image("results/plots/Modelo 2/a/Rplot03.png")
-tau2.b <-ggdraw() + draw_image("results/plots/Modelo 2/b/Rplot03.png")
-tau2.c <-ggdraw() + draw_image("results/plots/Modelo 2/c/Rplot03.png")
-tau2.d <-ggdraw() + draw_image("results/plots/Modelo 2/d/Rplot03.png")
-tau2.e <-ggdraw() + draw_image("results/plots/Modelo 2/e/Rplot03.png")
-
-plot_grid(tau2.a,tau2.b,tau2.c,tau2.d,tau2.e)
-```
-
-\pagebreak
-
-### Modelo 3
-
-Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste.
-
-```{r, echo=FALSE}
-
-tau3.a <-ggdraw() + draw_image("results/plots/Modelo 3/a/Rplot03.png")
-tau3.b <-ggdraw() + draw_image("results/plots/Modelo 3/b/Rplot03.png")
-tau3.c <-ggdraw() + draw_image("results/plots/Modelo 3/c/Rplot03.png")
-tau3.d <-ggdraw() + draw_image("results/plots/Modelo 3/d/Rplot03.png")
-tau3.e <-ggdraw() + draw_image("results/plots/Modelo 3/e/Rplot03.png")
-
-
-plot_grid(tau3.a,tau3.b,tau3.c,tau3.d,tau3.e)
-
-```
-
-
-### Modelo 4
-
-Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste, patrón que se repite en los modelos anteriores.
-
-```{r, echo=FALSE}
-tau4.a <-ggdraw() + draw_image("results/plots/Modelo 4/a/Rplot03.png")
-tau4.b <-ggdraw() + draw_image("results/plots/Modelo 4/b/Rplot03.png")
-tau4.c <-ggdraw() + draw_image("results/plots/Modelo 4/c/Rplot03.png")
-tau4.d <-ggdraw() + draw_image("results/plots/Modelo 4/d/Rplot03.png")
-tau4.e <-ggdraw() + draw_image("results/plots/Modelo 4/e/Rplot03.png")
-
-plot_grid(tau4.a,tau4.b,tau4.c,tau4.d,tau4.e)
-```
-
-
-### Modelo 5
-
-Con respecto a los “tau” o tiempos de no-decisión, los participantes tienen mayores tiempos de no-decisión cuando hay un mayor contraste.
-
-```{r, echo=FALSE}
-tau5.a <-ggdraw() + draw_image("results/plots/Modelo 5/a/Rplot02.png")
-tau5.b <-ggdraw() + draw_image("results/plots/Modelo 5/b/Rplot02.png")
-tau5.c <-ggdraw() + draw_image("results/plots/Modelo 5/c/Rplot02.png")
-tau5.d <-ggdraw() + draw_image("results/plots/Modelo 5/d/Rplot02.png")
-tau5.e <-ggdraw() + draw_image("results/plots/Modelo 5/e/Rplot02.png")
-
-plot_grid(tau5.a,tau5.b,tau5.c,tau5.d,tau5.e)
-
-```
-
-\pagebreak
-
-
-### Delta
-
-#### Delta modelo 1
-
-```{r, echo=FALSE, fig.align='center'}
-
-delta1.a <-ggdraw() + draw_image("results/plots/Modelo 1/a/Rplot04.png")
-delta1.b <-ggdraw() + draw_image("results/plots/Modelo 1/b/Rplot04.png")
-delta1.c <-ggdraw() + draw_image("results/plots/Modelo 1/c/Rplot04.png")
-delta1.d <-ggdraw() + draw_image("results/plots/Modelo 1/d/Rplot04.png")
-delta1.e <-ggdraw() + draw_image("results/plots/Modelo 1/e/Rplot04.png")
-
-plot_grid(delta1.a,delta1.b,delta1.c,delta1.d, delta1.e)
-```
-
 
 # Ajuste de modelo DIC y LOO
 
