@@ -26,4 +26,7 @@ En el siguiente proyecto se encuentra el código, materiales y resultados para l
 3) Correr el script y esperar los resultados.
 
 
+**Importante**: Es requisito fundamental tener instalado JAGS (https://sourceforge.net/projects/mcmc-jags/files/latest/download) y el módulo JAGS Wiener (https://sourceforge.net/projects/jags-wiener/files/latest/download).
+
+
 **[En caso de problemas de replicación, favor contactar a cualquiera de los integrantes]**
